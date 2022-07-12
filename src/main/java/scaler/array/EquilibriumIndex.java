@@ -52,23 +52,16 @@ public class EquilibriumIndex {
             totalSum += array[i];
         }
 
-        if ((totalSum - array[0]) == 0) {
-            return 0;
-        }
+        int leftSum = 0;
+        int rightSum = totalSum;
 
-        if ((totalSum - array[array.length - 1]) == 0) {
-            return array.length - 1;
-        }
-
-        int leftSum = 0, rightSum;
-
-        for (int i = 1; i < array.length; i++) {
-            leftSum += array[i - 1];
-            rightSum = totalSum - (leftSum + array[i]);
-
-            if (leftSum == rightSum) {
+        for (int i = 0; i < array.length; i++) {
+            rightSum -= array[i];
+            if(leftSum == rightSum) {
                 return i;
             }
+
+            leftSum += array[i];
         }
 
         return -1;
