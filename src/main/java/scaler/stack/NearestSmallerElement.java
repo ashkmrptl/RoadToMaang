@@ -16,6 +16,7 @@ public class NearestSmallerElement {
     public static void main(String[] args) {
         int[] A = new int[]{4, 5, 2, 10, 8};
         System.out.println(Arrays.toString(solve(A)));
+        System.out.println(Arrays.toString(solveUsingIndex(A)));
     }
 
     private static int[] solve(int[] A) {
@@ -40,20 +41,24 @@ public class NearestSmallerElement {
         return result;
     }
 
-    private static int solveUsingIndex(int[] A) {
+    private static int[] solveUsingIndex(int[] A) {
         int[] resultIndex = new int[A.length];
+
+        for (int i = 0; i < A.length; i++) {
+            resultIndex[i] = -1;
+        }
 
         final Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < A.length; i++) {
-            while (!stack.isEmpty() && A[i] <= stack.peek()) {
+            while (!stack.isEmpty() && A[i] <= A[stack.peek()]) {
                 stack.pop();
             }
-
             if (!stack.isEmpty()) {
                 resultIndex[i] = stack.peek();
             }
-
             stack.add(i);
         }
+
+        return resultIndex;
     }
 }
