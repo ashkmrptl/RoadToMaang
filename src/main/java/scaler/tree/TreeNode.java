@@ -13,6 +13,6 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return val + "";
+        return String.valueOf(val);
     }
 }

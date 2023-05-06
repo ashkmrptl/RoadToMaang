@@ -40,7 +40,7 @@ public class LongestPalindromicSubString {
     }
 
     /**
-     * Approach: This approach takes O(n^2) TC and is not optimized, but it is better than the bruteforce approach which takes O(nn^3).
+     * Approach: This approach takes O(n^2) TC and is not optimized, but it is better than the bruteforce approach which takes O(n^3).
      * In this we find the longest palindrome separately with even length and with odd length.
      */
     private static String solve(final String A) {
