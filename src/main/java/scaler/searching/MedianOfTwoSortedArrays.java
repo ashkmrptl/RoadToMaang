@@ -6,6 +6,11 @@ public class MedianOfTwoSortedArrays {
         int[] B = new int[]{2, 3};
 
         System.out.println(findMedian(A, B));
+
+        A = new int[] {1, 3};
+        B = new int[] {2};
+
+        System.out.println(findMedian(A, B));
     }
 
     private static double findMedian(int[] A, int[] B) {

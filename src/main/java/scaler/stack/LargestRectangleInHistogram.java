@@ -35,7 +35,7 @@ public class LargestRectangleInHistogram {
             if (!stackLeft.isEmpty()) {
                 leftNearestSmall[i] = stackLeft.peek();
             }
-            stackLeft.add(i);
+            stackLeft.push(i);
 
             while (!stackRight.isEmpty() && A[j] <= A[stackRight.peek()]) {
                 stackRight.pop();
@@ -43,7 +43,7 @@ public class LargestRectangleInHistogram {
             if (!stackRight.isEmpty()) {
                 rightNearestSmall[j] = stackRight.peek();
             }
-            stackRight.add(j);
+            stackRight.push(j);
         }
 
         int ans = Integer.MIN_VALUE;
