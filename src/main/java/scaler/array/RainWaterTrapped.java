@@ -48,18 +48,17 @@ public class RainWaterTrapped {
         }
 
         //We will construct the left max array on the fly
-
-        int leftMax = A[0];
+        int lm = A[0];
 
         for (int i = 1; i < A.length - 1; i++) {
-            sum += Math.max((Math.min(leftMax, rm[i]) - A[i]), 0);
-            leftMax = Math.max(leftMax, A[i]);
+            sum += Math.max((Math.min(lm, rm[i]) - A[i]), 0);
+            lm = Math.max(lm, A[i]);
         }
 
         return sum;
     }
 
-    //This approach uses left max and right max array. Hence it takes SC as O(n). TC is O(n). This can be solved in O(1) SC using two pointers approach
+    //This approach uses left max and right max array. Hence, it takes SC as O(n). TC is O(n). This can be solved in O(1) SC using two pointers approach
     private static int solve(int[] A) {
         int sum = 0;
 
