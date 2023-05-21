@@ -21,14 +21,14 @@ public class ValidParentheses {
             if (isOpening(ch)) {
                 stack.push(ch);
             } else {
-                if (!stack.isEmpty() || isValid(stack.peek(), ch)) {
+                if (!stack.isEmpty() && isValid(stack.peek(), ch)) {
                     stack.pop();
                 } else {
                     return false;
                 }
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 
     private static boolean isOpening(final char ch) {

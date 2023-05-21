@@ -34,14 +34,19 @@ public class ReverseInteger {
         int res = 0;
         while (x != 0) {
             int reminder = x % 10;
-            x /= 10;
+
+            //Positive boundary check
             if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && reminder > 7)) {
                 return 0;
             }
+
+            //Negative boundary check
             if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && reminder < -8)) {
                 return 0;
             }
             res = res * 10 + reminder;
+
+            x = x / 10;
         }
         return res;
     }
