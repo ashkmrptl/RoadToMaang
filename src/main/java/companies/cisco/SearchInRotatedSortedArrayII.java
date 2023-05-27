@@ -1,18 +1,24 @@
 package companies.cisco;
 
-public class SearchInRotatedSortedArray {
+/**
+ * Array contains duplicate elements
+ */
+public class SearchInRotatedSortedArrayII {
     public static void main(String[] args) {
-        int[] nums = new int[]{4, 5, 6, 7, 0, 1, 2};
+        int[] nums = new int[]{2, 5, 6, 0, 0, 1, 2};
         System.out.println(search(nums, 0));
 
-        nums = new int[]{4, 5, 6, 7, 0, 1, 2};
+        nums = new int[]{2, 5, 6, 0, 0, 1, 2};
         System.out.println(search(nums, 3));
 
         nums = new int[]{1, 3};
         System.out.println(search(nums, 3));
+
+        nums = new int[]{3, 5, 1};
+        System.out.println(search(nums, 3));
     }
 
-    private static int search(int[] nums, int target) {
+    private static boolean search(int[] nums, int target) {
         int pivot = -1;
 
         for (int i = 0; i < nums.length - 1; i++) {
@@ -31,17 +37,19 @@ public class SearchInRotatedSortedArray {
             end = pivot;
         }
 
+        //Modified binary search
         while (start <= end) {
             int mid = (start + end) / 2;
 
             if (nums[mid] == target) {
-                return mid;
-            } else if (target < nums[mid]) {
-                end = mid - 1;
-            } else {
+                return true;
+            } else if (target > nums[mid]) {
                 start = mid + 1;
+            } else {
+                end = mid - 1;
             }
         }
-        return -1;
+
+        return false;
     }
 }

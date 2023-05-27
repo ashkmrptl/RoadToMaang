@@ -12,6 +12,9 @@ public class SpiralPrinting {
 
         A = new int[][]{{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
         printSpiral1(A, A.length, A[0].length);
+
+        A = new int[][]{{2, 5, 8}, {4, 0, -1}};
+        printSpiral1(A, A.length, A[0].length);
     }
 
     private static void printSpiral1(int[][] A, int n, int m) {
@@ -34,14 +37,14 @@ public class SpiralPrinting {
             }
             endCol--;
 
-            if (startRow < endRow) {
+            if (startRow <= endRow) {
                 for (i = endCol; i >= startCol; i--) {
                     System.out.print(A[endRow][i] + " ");
                 }
                 endRow--;
             }
 
-            if (startCol < endCol) {
+            if (startCol <= endCol) {
                 for (i = endRow; i >= startRow; i--) {
                     System.out.print(A[i][startCol] + " ");
                 }
