@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class DijsktraCopied {
+public class DijkstraCopied {
     public static void main(String[] args) {
         int[][] B = new int[][]{{0, 4, 9}, {3, 4, 6}, {1, 2, 1}, {2, 5, 1}, {2, 4, 5}, {0, 3, 7}, {0, 1, 1}, {4, 5, 7}, {0, 5, 1}};
-        System.out.println(Arrays.toString(new DijsktraCopied().solve(6, B, 4)));
+        System.out.println(Arrays.toString(new DijkstraCopied().solve(6, B, 4)));
 
         B = new int[][]{{0, 3, 4}, {2, 3, 3}, {0, 1, 9}, {3, 4, 10}, {1, 3, 8}};
-        System.out.println(Arrays.toString(new DijsktraCopied().solve(5, B, 4)));
+        System.out.println(Arrays.toString(new DijkstraCopied().solve(5, B, 4)));
     }
 
     public int[] solve(int A, int[][] B, int C) {

@@ -8,22 +8,22 @@ public class WordBreak {
     public static void main(String[] args) {
         String s = "leetcode";
         List<String> wordDict = List.of("leet", "code");
-        System.out.println(wordbreak(s, wordDict));
+        System.out.println(wordBreak(s, wordDict));
 
         s = "catsandog";
         wordDict = List.of("cats", "dog", "sand", "and", "cat");
-        System.out.println(wordbreak(s, wordDict));
+        System.out.println(wordBreak(s, wordDict));
 
         s = "catsanddog";
         wordDict = List.of("cats", "dog", "sand", "and", "cat");
-        System.out.println(wordbreak(s, wordDict));
+        System.out.println(wordBreak(s, wordDict));
 
         s = "catsanddog";
         wordDict = List.of("cats", "dog", "and", "cat");
-        System.out.println(wordbreak(s, wordDict));
+        System.out.println(wordBreak(s, wordDict));
     }
 
-    private static boolean wordbreak(String s, List<String> wordDict) {
+    private static boolean wordBreak(String s, List<String> wordDict) {
         //return solveRecursively(s, new HashSet<>(wordDict), 0);
 
         /*boolean[] dp = new boolean[s.length() + 1];

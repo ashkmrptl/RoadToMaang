@@ -14,7 +14,7 @@ import java.util.*;
  * The second argument given is the matrix B of size M x 3, where nodes B[i][0] and B[i][1] are connected with an edge of weight B[i][2].
  * The third argument given is an integer C.
  */
-public class Dijsktra {
+public class Dijkstra {
     public static void main(String[] args) {
         int[][] B = new int[][]{{0, 4, 9}, {3, 4, 6}, {1, 2, 1}, {2, 5, 1}, {2, 4, 5}, {0, 3, 7}, {0, 1, 1}, {4, 5, 7}, {0, 5, 1}};
         System.out.println(Arrays.toString(solve(6, B, 4)));
@@ -28,7 +28,7 @@ public class Dijsktra {
     private static int[] solve_again(int A, int[][] B, int C) {
         final Map<Integer, List<Pair>> graph = createGraph(A, B);
 
-        //Create distance array for tracing shortest path
+        //Create distance array for tracing the shortest path
         int[] distance = new int[A];
 
         //Set all distance except source as infinity
