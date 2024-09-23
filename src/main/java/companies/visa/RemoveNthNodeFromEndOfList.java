@@ -1,23 +1,24 @@
-package companies.cisco;
+package companies.visa;
 
 public class RemoveNthNodeFromEndOfList {
     public static void main(String[] args) {
         ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 
-        ListNode ans = removeNthFromEnd(head, 2);
+        ListNode ans = remove(head, 2);
 
         head = new ListNode(1);
 
-        ans = removeNthFromEnd(head, 1);
+        ans = remove(head, 1);
     }
 
-    private static ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(-1);
+    //Brute force is to reverse, remove and reverse again.
+    private static ListNode remove(ListNode head, int n) {
+        final ListNode dummy = new ListNode();
         dummy.next = head;
+
         ListNode left = dummy;
         ListNode right = head;
 
-        //Move right Nth time
         while (n > 0) {
             right = right.next;
             n--;
