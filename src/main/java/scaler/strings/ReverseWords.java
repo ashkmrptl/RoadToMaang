@@ -3,51 +3,46 @@ package scaler.strings;
 //Reverse words of the given string
 public class ReverseWords {
     public static void main(String[] args) {
-        String A = "crulgzfkif gg ombt vemmoxrgf qoddptokkz op xdq hv ";
+        System.out.println(solve("Let's take LeetCode contest"));
 
-        System.out.println(solve(A));
+        System.out.println(solve("Mr Ding"));
     }
 
-    private static String solve(String A) {
+    private static String solve(String str) {
         // Trimming to removing trailing spaces.
-        A = A.trim();
+        str = str.trim();
 
         //Reverse the entire string to bring the words in required space
-        A = reverse(A, 0, A.length() - 1);
+        str = reverse(str, 0, str.length() - 1);
 
         //Reverse the words to get back them in original form
         int i = 0;
         int j = 0;
 
-        while (j < A.length()) {
-            while (j < A.length() && A.charAt(j) != ' ') {
+        while (j < str.length()) {
+            while (j < str.length() && str.charAt(j) != ' ') {
                 j++;
             }
-            A = reverse(A, i, j - 1);
+            str = reverse(str, i, j - 1);
             j++;
             i = j;
         }
 
-        return A;
+        return str;
     }
 
-    private static String reverse(String s, int start, int end) {
-        char[] A = s.toCharArray();
+    private static String reverse(String s, int l, int r) {
+        char[] arr = s.toCharArray();
 
-        while (start < end) {
-            char temp = A[start];
-            A[start] = A[end];
-            A[end] = temp;
-            start++;
-            end--;
+        while (l < r) {
+            char temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            l++;
+            r--;
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < A.length; i++) {
-            sb.append(A[i]);
-        }
-
-        return sb.toString();
+        return new String(arr);
     }
 
 }
