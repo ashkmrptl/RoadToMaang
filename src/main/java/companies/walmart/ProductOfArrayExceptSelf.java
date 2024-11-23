@@ -2,68 +2,39 @@ package companies.walmart;
 
 import java.util.Arrays;
 
+/**
+ * 238. Product of Array Except Self
+ * https://leetcode.com/problems/product-of-array-except-self/description/?envType=company&envId=walmart-labs&favoriteSlug=walmart-labs-all
+ */
 public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3, 4};
-        System.out.println(Arrays.toString(productExceptSelf_copied(nums)));
+        System.out.println(Arrays.toString(productExceptSelf(nums)));
 
         nums = new int[]{-1, 1, 0, -3, 3};
-        System.out.println(Arrays.toString(productExceptSelf_copied(nums)));
+        System.out.println(Arrays.toString(productExceptSelf(nums)));
     }
 
-    public static int[] productExceptSelf_copied(int[] nums) {
+    private static int[] productExceptSelf(int[] nums) {
         int n = nums.length;
-        int[] res = new int[n];
-        int left = 1;
+        int[] result = new int[n];
+
+        int prefixMul = 1;
         for (int i = 0; i < n; i++) {
             if (i != 0) {
-                left = left*nums[i - 1];
+                prefixMul = prefixMul * nums[i - 1];
             }
-            res[i] = left;
+            result[i] = prefixMul;
         }
-        int right = 1;
+
+        int postfixMul = 1;
         for (int i = n - 1; i >= 0; i--) {
             if (i != n - 1) {
-                right = right*nums[i + 1];
+                postfixMul = postfixMul * nums[i + 1];
             }
-            res[i] = res[i]*right;
-        }
-        return res;
-    }
-
-    private static int[] productArray(int[] nums) {
-        int product = 1;
-        int productWithoutZeros = 1;
-        int zeroCount = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-            product *= nums[i];
-            if (nums[i] != 0) {
-                productWithoutZeros *= nums[i];
-            } else {
-                zeroCount++;
-            }
-        }
-        int[] ans = new int[nums.length];
-
-        if (product == productWithoutZeros) {
-            for (int i = 0; i < nums.length; i++) {
-                ans[i] = product / nums[i];
-            }
-        } else {
-            if (zeroCount > 1) {
-                Arrays.fill(ans, 0);
-            } else {
-                for (int i = 0; i < nums.length; i++) {
-                    if (nums[i] == 0) {
-                        ans[i] = productWithoutZeros;
-                    } else {
-                        ans[i] = 0;
-                    }
-                }
-            }
+            result[i] = result[i] * postfixMul;
         }
 
-        return ans;
+        return result;
     }
 }

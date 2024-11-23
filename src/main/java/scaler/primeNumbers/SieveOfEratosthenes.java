@@ -12,6 +12,10 @@ public class SieveOfEratosthenes {
         int N = 50;
         System.out.println(Arrays.toString(solve(N)));
         System.out.println(Arrays.toString(solveOptimized(N)));
+
+        N = 10;
+        System.out.println(Arrays.toString(solve(N)));
+        System.out.println(Arrays.toString(solveOptimized(N)));
     }
 
     /**
